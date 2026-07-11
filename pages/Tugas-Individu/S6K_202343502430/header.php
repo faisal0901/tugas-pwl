@@ -16,98 +16,91 @@
             color: #3d3d3d;
         }
 
-        .hero {
-            background: linear-gradient(120deg, #ff9a8b 0%, #ff6a88 35%, #2ec4b6 100%);
-            padding: 40px 20px 70px;
-            text-align: center;
-            border-radius: 0 0 40px 40px;
-            color: #fff;
+        .layout {
+            display: flex;
+            min-height: 100vh;
         }
 
-        .hero .avatar {
-            width: 74px;
-            height: 74px;
+        .sidebar {
+            width: 260px;
+            flex: 0 0 260px;
+            background: linear-gradient(160deg, #ff9a8b 0%, #ff6a88 40%, #2ec4b6 100%);
+            color: #fff;
+            padding: 32px 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar::-webkit-scrollbar { width: 5px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.35); border-radius: 10px; }
+
+        .sidebar .avatar {
+            width: 68px;
+            height: 68px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 14px;
-            font-size: 1.6em;
+            font-size: 1.5em;
             font-weight: 800;
             border: 3px solid rgba(255, 255, 255, 0.6);
         }
 
-        .hero h1 {
-            font-size: 1.9em;
+        .sidebar h1 {
+            font-size: 1.25em;
             font-weight: 800;
-            letter-spacing: 0.5px;
+            text-align: center;
+            letter-spacing: 0.3px;
         }
 
-        .hero .subtitle {
-            margin-top: 6px;
-            font-size: 0.9em;
-            font-weight: 600;
-            opacity: 0.9;
-        }
-
-        .hero .npm-pill {
-            display: inline-block;
-            margin-top: 14px;
-            padding: 6px 18px;
+        .sidebar .npm-pill {
+            display: block;
+            width: fit-content;
+            margin: 12px auto 26px;
+            padding: 6px 16px;
             background: rgba(255, 255, 255, 0.22);
             border-radius: 30px;
+            font-size: 0.78em;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-align: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .nav-menu a {
+            padding: 10px 14px;
+            border-radius: 12px;
+            text-decoration: none;
             font-size: 0.85em;
             font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-wrap {
-            max-width: 920px;
-            margin: -35px auto 0;
-            padding: 0 16px;
-        }
-
-        .nav-pills {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            background: #fff;
-            padding: 14px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 106, 136, 0.18);
-        }
-
-        .nav-pills::-webkit-scrollbar { height: 5px; }
-        .nav-pills::-webkit-scrollbar-thumb { background: #ffd3c7; border-radius: 10px; }
-
-        .nav-pills a {
-            flex: 0 0 auto;
-            padding: 9px 16px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.82em;
-            font-weight: 700;
-            color: #ff6a88;
-            background: #fff0ee;
-            white-space: nowrap;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.12);
             transition: all 0.25s ease;
         }
 
-        .nav-pills a:hover {
-            background: #ffe1dc;
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.28);
         }
 
-        .nav-pills a.active {
-            background: linear-gradient(120deg, #ff6a88, #2ec4b6);
-            color: #fff;
-            box-shadow: 0 4px 12px rgba(255, 106, 136, 0.4);
+        .nav-menu a.active {
+            background: #fff;
+            color: #ff6a88;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .content-wrap {
-            max-width: 920px;
-            margin: 24px auto 50px;
-            padding: 0 16px;
+            flex: 1;
+            padding: 40px 34px;
+            max-width: 900px;
         }
 
         .content-card {
@@ -180,6 +173,12 @@
             color: #ff6a88;
             font-weight: 700;
         }
+
+        @media (max-width: 820px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; flex: 0 0 auto; height: auto; position: relative; }
+            .content-wrap { padding: 24px 16px 50px; max-width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -194,19 +193,17 @@ foreach ($files as $f) {
 }
 $current = basename($_SERVER['PHP_SELF']);
 ?>
-<div class="hero">
-    <div class="avatar">NM</div>
-    <h1>Nadilla Mulyani</h1>
-    <div class="npm-pill">202343502430 &middot; S6K</div>
-</div>
-
-<div class="nav-wrap">
-    <div class="nav-pills">
-        <?php foreach ($menu as $file => $label): ?>
-        <a href="<?= $file ?>" class="<?= ($current === $file) ? 'active' : '' ?>"><?= $label ?></a>
-        <?php endforeach; ?>
+<div class="layout">
+    <div class="sidebar">
+        <div class="avatar">NM</div>
+        <h1>Nadilla Mulyani</h1>
+        <div class="npm-pill">202343502430 &middot; S6K</div>
+        <nav class="nav-menu">
+            <?php foreach ($menu as $file => $label): ?>
+            <a href="<?= $file ?>" class="<?= ($current === $file) ? 'active' : '' ?>"><?= $label ?></a>
+            <?php endforeach; ?>
+        </nav>
     </div>
-</div>
 
-<div class="content-wrap">
-    <div class="content-card">
+    <div class="content-wrap">
+        <div class="content-card">
