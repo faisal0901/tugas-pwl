@@ -129,19 +129,22 @@ include '../includes/header.php';
                     [
                         'nama' => 'Simson Resky',
                         'nim' => '202343502457',
+                        'folder' => 'S6k_202343502457',
+                        'entry' => '202343502457_index.php',
                         'role' => 'Project Lead & Backend Developer',
                         'icon' => 'fa-laptop-code'
                     ],
                     [
                         'nama' => 'Muchammad Faisal',
                         'nim' => '202343502487',
-                        'folder' => '202343592487',
+                        'folder' => 'S6K_202343592487',
                         'role' => 'Full Stack Developer',
                         'icon' => 'fa-code'
                     ],
                     [
                         'nama' => 'Yohanes Gerald',
                         'nim' => '202343502446',
+                        'folder' => 's6k_202343502446',
                         'role' => 'Frontend Developer',
                         'icon' => 'fa-paint-brush'
                     ],
@@ -154,6 +157,7 @@ include '../includes/header.php';
                     [
                         'nama' => 'Nadilla Mulyani',
                         'nim' => '202343502430',
+                        'folder' => 'S6K_202343502430',
                         'role' => 'UI/UX Designer',
                         'icon' => 'fa-palette'
                     ],
@@ -178,11 +182,16 @@ include '../includes/header.php';
                 ];
 
                 foreach ($tim as $anggota):
-                    $folder_nim = $anggota['folder'] ?? $anggota['nim'];
-                    $tugas_url = '/manajemen-sdm/pages/Tugas-Individu/S6K_' . $folder_nim . '/index.php';
+                    $has_tugas = isset($anggota['folder']);
+                    $entry_file = $anggota['entry'] ?? 'index.php';
+                    $tugas_url = $has_tugas
+                        ? '/manajemen-sdm/pages/Tugas-Individu/' . $anggota['folder'] . '/' . $entry_file
+                        : null;
                 ?>
                     <div class="col-md-6 col-lg-3 mb-4">
+                        <?php if ($has_tugas): ?>
                         <a href="<?php echo $tugas_url; ?>" class="text-decoration-none">
+                        <?php endif; ?>
                             <div class="card h-100 text-center border-0 shadow-sm team-card" style="border-radius: 12px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease;">
                                 <div class="card-body">
                                     <div class="mb-3">
@@ -195,12 +204,20 @@ include '../includes/header.php';
                                     <p class="card-text small mb-2">
                                         <span class="badge bg-primary"><?php echo htmlspecialchars($anggota['role']); ?></span>
                                     </p>
+                                    <?php if ($has_tugas): ?>
                                     <p class="text-primary small mb-0">
                                         <i class="fas fa-arrow-circle-right"></i> Lihat Tugas Individu
                                     </p>
+                                    <?php else: ?>
+                                    <p class="text-muted small mb-0">
+                                        <i class="fas fa-hourglass-half"></i> Belum Tersedia
+                                    </p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
+                        <?php if ($has_tugas): ?>
                         </a>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             </div>

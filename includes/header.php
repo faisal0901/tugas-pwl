@@ -21,6 +21,20 @@
     <link rel="stylesheet" href="/manajemen-sdm/assets/css/style.css?v=2024.2">
 </head>
 <body>
+    <!-- Mobile Topbar -->
+    <div class="mobile-topbar d-lg-none">
+        <button class="sidebar-toggle" type="button" aria-label="Buka menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a href="/manajemen-sdm/index.php" class="mobile-topbar-brand">
+            <i class="fas fa-building"></i>
+            <span>Manajemen SDM</span>
+        </a>
+    </div>
+
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay"></div>
+
     <div class="wrapper">
         <!-- Sidebar -->
         <nav class="sidebar">
@@ -29,8 +43,8 @@
                     <i class="fas fa-building"></i>
                     <span>Manajemen SDM</span>
                 </a>
-                <button class="sidebar-toggle d-lg-none" type="button">
-                    <i class="fas fa-bars"></i>
+                <button class="sidebar-toggle d-lg-none" type="button" aria-label="Tutup menu">
+                    <i class="fas fa-xmark"></i>
                 </button>
             </div>
 

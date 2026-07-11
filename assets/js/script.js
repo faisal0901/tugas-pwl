@@ -4,12 +4,20 @@ $(document).ready(function() {
     // Sidebar toggle for mobile
     $('.sidebar-toggle').on('click', function() {
         $('.sidebar').toggleClass('active');
+        $('.sidebar-overlay').toggleClass('active');
+    });
+
+    // Close sidebar when overlay is tapped (mobile)
+    $('.sidebar-overlay').on('click', function() {
+        $('.sidebar').removeClass('active');
+        $('.sidebar-overlay').removeClass('active');
     });
 
     // Close sidebar when menu link is clicked (mobile)
     $('.menu-link').on('click', function() {
         if (window.innerWidth <= 768) {
             $('.sidebar').removeClass('active');
+            $('.sidebar-overlay').removeClass('active');
         }
     });
 
@@ -18,6 +26,7 @@ $(document).ready(function() {
         if (window.innerWidth <= 768) {
             if (!$(e.target).closest('.sidebar').length && !$(e.target).closest('.sidebar-toggle').length) {
                 $('.sidebar').removeClass('active');
+                $('.sidebar-overlay').removeClass('active');
             }
         }
     });
