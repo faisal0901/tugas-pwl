@@ -151,6 +151,7 @@ include '../includes/header.php';
                     [
                         'nama' => 'Bagus Taufik',
                         'nim' => '202343502565',
+                        'folder' => 'S6K_202343502565',
                         'role' => 'Database Administrator',
                         'icon' => 'fa-database'
                     ],
@@ -164,18 +165,21 @@ include '../includes/header.php';
                     [
                         'nama' => 'Fransiskus Xaferius Patricio',
                         'nim' => '202343502519',
+                        'folder' => 'S6K_202343502519',
                         'role' => 'Quality Assurance',
                         'icon' => 'fa-tasks'
                     ],
                     [
                         'nama' => 'Yusma Maulana',
                         'nim' => '202343502527',
+                        'folder' => 'S6K_202343502527',
                         'role' => 'Documentation & Support',
                         'icon' => 'fa-book'
                     ],
                     [
                         'nama' => 'Muhamad Aditia Saputra',
                         'nim' => '202343579059',
+                        'folder' => 'S6K_202343579059',
                         'role' => 'DevOps & System Administrator',
                         'icon' => 'fa-server'
                     ]
@@ -190,7 +194,7 @@ include '../includes/header.php';
                 ?>
                     <div class="col-md-6 col-lg-3 mb-4">
                         <?php if ($has_tugas): ?>
-                        <a href="<?php echo $tugas_url; ?>" class="text-decoration-none">
+                        <a href="<?php echo $tugas_url; ?>" class="text-decoration-none" target="_blank" rel="noopener">
                         <?php endif; ?>
                             <div class="card h-100 text-center border-0 shadow-sm team-card" style="border-radius: 12px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease;">
                                 <div class="card-body">
