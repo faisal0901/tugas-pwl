@@ -179,9 +179,9 @@ include '../includes/header.php';
                         'nama' => 'Yusma Maulana',
                         'nim' => '202343502527',
                         'folder' => 'S6K_202343502527',
-                        'role' => 'Documentation & Support',
-                        'desc' => 'Menyusun dokumentasi sistem dan panduan penggunaan aplikasi',
-                        'icon' => 'fa-book'
+                        'role' => 'Backend Developer',
+                        'desc' => 'Membangun handler CRUD untuk modul Karyawan, Gaji, Kehadiran, dan Tunjangan',
+                        'icon' => 'fa-terminal'
                     ],
                     [
                         'nama' => 'Muhamad Aditia Saputra',
