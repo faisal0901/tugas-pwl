@@ -103,6 +103,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Sample User Data
+-- Password untuk admin: admin123, untuk user: user123
 INSERT INTO users (username, email, password, full_name, role) VALUES
-('admin', 'admin@manajemen-sdm.com', '$2y$10$E8K9EqJ8K9EqJ8K9EqJ8K.E8K9EqJ8K9EqJ8K9EqJ8K9EqJ8K9EqJ8', 'Administrator', 'admin'),
-('user', 'user@manajemen-sdm.com', '$2y$10$E8K9EqJ8K9EqJ8K9EqJ8K.E8K9EqJ8K9EqJ8K9EqJ8K9EqJ8K9EqJ8', 'Regular User', 'user');
+('admin', 'admin@manajemen-sdm.com', '$2y$10$sMYxmMNyfQVN4tswGy0eWu9Lq0/31TOSwdeaRPRFTmzWDffe5i1lC', 'Administrator', 'admin'),
+('user', 'user@manajemen-sdm.com', '$2y$10$P/fqT8ZlV0miyZDLFtUXwOZrNYWkIe.v6wtQBCAZGw.UY0BQPNmMy', 'Regular User', 'user');

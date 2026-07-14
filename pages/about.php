@@ -132,6 +132,7 @@ include '../includes/header.php';
                         'folder' => 'S6k_202343502457',
                         'entry' => '202343502457_index.php',
                         'role' => 'Project Lead & Backend Developer',
+                        'desc' => 'Membangun struktur backend & sistem autentikasi (login dan register)',
                         'icon' => 'fa-laptop-code'
                     ],
                     [
@@ -139,6 +140,7 @@ include '../includes/header.php';
                         'nim' => '202343502487',
                         'folder' => 'S6K_202343592487',
                         'role' => 'Full Stack Developer',
+                        'desc' => 'Mengembangkan modul Gaji & Tunjangan serta halaman Laporan Kehadiran dan Gaji',
                         'icon' => 'fa-code'
                     ],
                     [
@@ -146,6 +148,7 @@ include '../includes/header.php';
                         'nim' => '202343502446',
                         'folder' => 's6k_202343502446',
                         'role' => 'Frontend Developer',
+                        'desc' => 'Mendesain tampilan sidebar, dashboard, dan halaman Data Karyawan',
                         'icon' => 'fa-paint-brush'
                     ],
                     [
@@ -153,27 +156,31 @@ include '../includes/header.php';
                         'nim' => '202343502565',
                         'folder' => 'S6K_202343502565',
                         'role' => 'Database Administrator',
+                        'desc' => 'Merancang skema database untuk data karyawan, gaji, dan kehadiran',
                         'icon' => 'fa-database'
                     ],
                     [
                         'nama' => 'Nadilla Mulyani',
                         'nim' => '202343502430',
                         'folder' => 'S6K_202343502430',
-                        'role' => 'UI/UX Designer',
-                        'icon' => 'fa-palette'
+                        'role' => 'Web Developer',
+                        'desc' => 'Mengembangkan halaman About Us dan modul Data Kehadiran',
+                        'icon' => 'fa-file-code'
                     ],
                     [
                         'nama' => 'Fransiskus Xaferius Patricio',
                         'nim' => '202343502519',
                         'folder' => 'S6K_202343502519',
-                        'role' => 'Quality Assurance',
-                        'icon' => 'fa-tasks'
+                        'role' => 'Database Engineer',
+                        'desc' => 'Mengelola relasi tabel & query untuk Laporan Gaji dan Kehadiran',
+                        'icon' => 'fa-table'
                     ],
                     [
                         'nama' => 'Yusma Maulana',
                         'nim' => '202343502527',
                         'folder' => 'S6K_202343502527',
                         'role' => 'Documentation & Support',
+                        'desc' => 'Menyusun dokumentasi sistem dan panduan penggunaan aplikasi',
                         'icon' => 'fa-book'
                     ],
                     [
@@ -181,6 +188,7 @@ include '../includes/header.php';
                         'nim' => '202343579059',
                         'folder' => 'S6K_202343579059',
                         'role' => 'DevOps & System Administrator',
+                        'desc' => 'Mengatur konfigurasi server, database, dan proses deployment aplikasi',
                         'icon' => 'fa-server'
                     ]
                 ];
@@ -208,6 +216,11 @@ include '../includes/header.php';
                                     <p class="card-text small mb-2">
                                         <span class="badge bg-primary"><?php echo htmlspecialchars($anggota['role']); ?></span>
                                     </p>
+                                    <?php if (!empty($anggota['desc'])): ?>
+                                    <p class="text-muted small mb-2" style="font-size: 0.78rem; line-height: 1.4;">
+                                        <?php echo htmlspecialchars($anggota['desc']); ?>
+                                    </p>
+                                    <?php endif; ?>
                                     <?php if ($has_tugas): ?>
                                     <p class="text-primary small mb-0">
                                         <i class="fas fa-arrow-circle-right"></i> Lihat Tugas Individu
